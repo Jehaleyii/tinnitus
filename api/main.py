@@ -15,7 +15,7 @@ def home():
 
 @app.route("/resources")
 def resources():
-    df = pd.read_csv("/static/data - Sheet1.csv").to_dict('records')
+    df = pd.read_csv("static/data - Sheet1.csv").to_dict('records')
     return render_template('resources.html', resources=df)
 
 
