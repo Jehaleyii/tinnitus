@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c3b019000f.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='fav.png') }}">
+
+    <meta charset="UTF-8">
+    <title>Tinnitus</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" style="height: 40px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('resources') }}">Resources</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('quiz') }}">Knowledge Quiz</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="child_pages">
+    <div class="resource-container">
+        <h1>Resources</h1>
+        <div class="resource-row row">
+                  <div class="col-lg-3">
+                      <img class="resource-logo" src="static/images/ata-logo-2.png" style="background-color: white;">
+                  </div>
+                  <div class="col-lg-9 col-md-9">
+                      <h2>American Tinnitus Association</h2>
+                      <p>Learn more about tinnitus.</p>
+                      <a class="btn btn-dark" target="_blank" href="https://www.ata.org/" role="button">Visit</a>
+                  </div>
+              </div>
+              <div class="resource-row row">
+                  <div class="col-lg-3 col-md-3">
+                      <img class="resource-logo" src="static/images/tinnitustalk-logo-white.png" style="background-color: #609AB9">
+                  </div>
+                  <div class="col-lg-9">
+                      <h2>Tinnitus Talk Support Forum</h2>
+                      <p>Connect with other people with Tinnitus on a support forum.</p>
+                      <a class="btn btn-dark" target="_blank" href="https://www.tinnitustalk.com/" role="button">Visit</a>
+                  </div>
+              </div>
+    </div>
+
+    <div class="resource-container">
+       <h1>Research-Backed Apps</h1>
+        {% for resource in resources %}
+
+                    <div class="resource-row row">
+                            <div class="col-lg-3 col-md-3">
+                                <img class="resource-logo" src="{{ resource['Logo'] }}">
+                            </div>
+                            <div class="col-lg-9">
+                                <h2>{{ resource["Name"] }}</h2>
+                                <p>{{ resource["Summary"] }}</p>
+                                <div class="row store-row">
+                                    {% if resource["Apple Store"] != "none" %}
+                                        <div class="col-lg-3 col-md-5">
+                                            <a class="btn btn-dark" target="_blank" href='{{ resource["Apple Store"] }}' role="button">
+                                            <i class="fa-brands fa-apple"></i> Download for iPhone</a>
+                                        </div>
+                                    {% endif %}
+                                    {% if resource["Android Store"] != "none" %}
+                                        <div class="col-lg-3 col-md-5">
+                                            <a class="btn btn-dark" target="_blank" href='{{ resource["Android Store"] }}' role="button">
+                                            <i class="fa-brands fa-android"></i> Download for Android</a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                    </div>
+{% endfor %}
+
+        </div>
+
+    <div class="resource-container">
+            <h1>Non-Research-Backed Apps</h1>
+                <div class="resource-row row">
+                    <div class="col-lg-3 col-md-3">
+                        <img class="resource-logo" src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/f2/1e/e5/f21ee530-66ea-530d-9194-7070c5569639/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/1200x600wa.png">
+                    </div>
+                    <div class="col-lg-9">
+                        <h2>Tinnilog Tracker</h2>
+                        <p>Allows for tracking tinnitus triggers</p>
+                        <div class="row store-row">
+                                <div class="col-lg-3 col-md-5">
+                                    <a class="btn btn-dark" target="_blank" href='https://apps.apple.com/app/id6450949021' role="button">
+                                        <i class="fa-brands fa-apple"></i> Download for iPhone</a>
+                                </div>
+                    </div>
+                </div>
+             </div>
+
+</div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

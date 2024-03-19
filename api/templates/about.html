@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c3b019000f.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='fav.png') }}">
+
+    <meta charset="UTF-8">
+    <title>Tinnitus</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Navbar</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" style="height: 40px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('resources') }}">Resources</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('quiz') }}">Knowledge Quiz</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<div clas="container" style="padding: 5%">
+
+
+    <h1>Tinnitus: A Concert Goer's Guide to Prevention and Relief</h1>
+<p>Welcome to our dedicated resource for concert enthusiasts who love live music but want to protect their hearing from tinnitus. This condition, often characterized by ringing or buzzing in the ears, can dampen not just the music experience but everyday life. Our goal is to provide you with essential information on understanding, preventing, and managing tinnitus, ensuring that your passion for live music continues harmoniously alongside your hearing health.
+</p>
+    <h2>Dive Into the World of Tinnitus</h2>
+<p>Tinnitus is a common phenomenon where individuals experience phantom sounds, such as buzzing or ringing, that are not caused by external noise. While the experience is subjective, its impact can range from a minor nuisance to a significant disruption of daily life.
+</p>
+    <h2>The Science Behind the Sound</h2>
+    <p>The pathophysiology of tinnitus involves complex changes within the inner ear and the neural pathways leading to the brain, sometimes as a response to damage from loud noise exposure. These changes can cause the brain to perceive sound where there is none, leading to the persistent sensation of tinnitus. Although a cure remains elusive, understanding this process is key to managing and mitigating the condition.
+</p>
+    <h2>Symptoms to Watch For</h2>
+    <p>Tinnitus symptoms can include:</p>
+    <ul>
+        <li>Phantom noises in the ears: buzzing, ringing, roaring, clicking, hissing, or humming
+</li>
+        <li>Occurring in one or both ears</li>
+    <li>Accompanied by hearing loss, dizziness, and sometimes, emotional distress like anxiety and depression
+</li>
+    </ul>
+
+
+<h2>Protect Your Ears: Prevention for Concert-Goers
+</h2>
+    <h3>
+Know the Risks
+    </h3>
+<p>
+    Loud music at concerts, clubs, and festivals can exceed 105–110 dB, with the risk of hearing loss possible in less than 5 minutes of exposure. Regular attendance without proper ear protection can lead to chronic tinnitus and hearing loss.
+
+</p>
+
+    <h3>Prevention Strategies</h3>
+    <ul>
+        <li>Ear Protection: Always wear high-fidelity earplugs at concerts. These reduce noise levels evenly, preserving sound quality while protecting your ears.
+
+        </li>
+        <li>Breaks: Give your ears short breaks during long events to reduce exposure.
+
+        </li>
+<li>Safe Listening: Stand at a safe distance from speakers and take advantage of quiet areas to give your ears a rest.
+
+        </li>
+    </ul>
+
+    <h2>Managing Tinnitus: A Guide for the Music Lover
+
+    </h2>
+    <p>Even with precautions, if you experience tinnitus, there are strategies to manage it:
+</p>
+<h3>At Home</h3>
+    <ul>
+        <li>Sound Masking: Use white noise machines or fans to help drown out the tinnitus at night or during quiet moments.
+</li>
+        <li>Lifestyle Adjustments: Reduce caffeine and alcohol intake, and quit smoking, as these can exacerbate symptoms.
+</li>
+    </ul>
+
+    <h3>Seeking Support and Treatment
+</h3>
+    <ul>
+<li>Healthcare Consultation: Early consultation can identify potential treatable causes or underlying conditions. Your provider may recommend hearing tests or refer you to a specialist.
+</li>
+        <li>Emotional and Psychological Support: Consider joining a support group or exploring therapies to manage the stress and emotional impact of tinnitus.
+        </li>
+    </ul>
+        <h3>Community and Resources</h3>
+
+<ul>
+    <li>Engage with Support Groups: Sharing experiences and coping strategies with others facing similar challenges can be incredibly supportive.
+</li>
+    <li>Educational Resources: Our website features a dedicated page with links to evidence-based information on tinnitus, hearing protection apps, and sound therapy tools specifically designed for music lovers.
+</li>
+</ul>
+
+
+
+</div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
