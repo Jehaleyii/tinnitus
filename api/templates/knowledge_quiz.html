@@ -13,15 +13,70 @@
 
     <meta charset="UTF-8">
     <title>Tinnitus</title>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Navbar</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #quiz-container {
+        padding: 0 5%;
+        text-align: left; /* Left-align the quiz content */
+    }
+    .question {
+        padding-bottom: 2%;
+    }
+    .submit-button, .retake-button {
+        margin: 20px 0 50px;
+        width: 150px;
+        background-color: #FFFF00;
+        border-style: none;
+        padding: 10px;
+    }
+    .submit-button:hover, .retake-button:hover{
+        transform:scale(1.05);
+        box-shadow:1px 15px 35px -10px rgba(0,0,0,0.4);
+    }
+
+    .question {
+      display: block;
+    }
+    .hidden {
+      display: none;
+    }
+    .green {
+      color: #3a643a;
+    }
+    .red {
+      color: #ab2525;
+    }
+
+    #results-container {
+        display: none; /* Hide results container initially */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center; /* Center align the results */
+    }
+
+    /* Additional styles for flat progress bar */
+    .progress-bar {
+        background-color: #3f51b5;
+        height: 20px;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .progress-bar-inner {
+        height: 100%;
+        width: 0%;
+        background-color: green;
+        transition: width 0.5s ease-in-out;
+    }
+    .progress-label {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    </style>
 </head>
 <body>
 
@@ -32,9 +87,6 @@
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-        <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('about') }}">About</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url_for('resources') }}">Resources</a>
       </li>
@@ -45,7 +97,163 @@
   </div>
 </nav>
 
-<img class=background src="/static/images/background.png">
+<div id="quiz-container">
+  <div class="question">
+    <h1>Question 1</h1>
+    <p>What is the primary theory behind the cause of tinnitus?</p>
+    <input type="radio" name="q1" value="A"> A. The body's natural response to silence.<br>
+    <input type="radio" name="q1" value="B"> B. Structural changes in the inner ear that alter signals sent to the brain.<br>
+    <input type="radio" name="q1" value="C"> C. An infection in the ear canal.<br>
+    <input type="radio" name="q1" value="D"> D. Excessive earwax buildup.<br>
+  </div>
+
+<div id="question2" class="question">
+    <h1>Question 2</h1>
+    <p>Which of the following is NOT a symptom commonly associated with tinnitus?</p>
+    <input type="radio" name="q2" value="A"> A. Buzzing sound in the ears.<br>
+    <input type="radio" name="q2" value="B"> B. Constant headache.<br>
+    <input type="radio" name="q2" value="C"> C. Hearing loss.<br>
+    <input type="radio" name="q2" value="D"> D. Dizziness.<br>
+  </div>
+  <div id="question3" class="question">
+    <h1>Question 3</h1>
+    <p>If someone is experiencing tinnitus, what is one of the recommended at-home management strategies?</p>
+    <input type="radio" name="q3" value="A"> A. Ignoring the noise until it goes away.<br>
+    <input type="radio" name="q3" value="B"> B. Listening to louder music to drown out the tinnitus.<br>
+    <input type="radio" name="q3" value="C"> C. Using a white noise machine or fan.<br>
+    <input type="radio" name="q3" value="D"> D. Avoiding all forms of sound.<br>
+  </div>
+  <div id="question4" class="question">
+    <h1>Question 4</h1>
+    <p>Which lifestyle factor is known to increase the risk of developing chronic tinnitus?</p>
+    <input type="radio" name="q4" value="A"> A. Practicing yoga regularly.<br>
+    <input type="radio" name="q4" value="B"> B. Exposure to loud noises, such as music at concerts.<br>
+    <input type="radio" name="q4" value="C"> C. Eating a balanced diet.<br>
+    <input type="radio" name="q4" value="D"> D. Daily meditation.<br>
+  </div>
+  <div id="question5" class="question">
+    <h1>Question 5</h1>
+    <p>What is one of the preventive measures recommended for concert-goers to protect against tinnitus?</p>
+    <input type="radio" name="q5" value="A"> A. Attending concerts without any ear protection to strengthen the ears.<br>
+    <input type="radio" name="q5" value="B"> B. Using high-fidelity earplugs during concerts.<br>
+    <input type="radio" name="q5" value="C"> C. Standing closer to the speakers for a better experience.<br>
+    <input type="radio" name="q5" value="D"> D. Consuming alcohol to relax the inner ear muscles.<br>
+  </div>
+  <div id="question6" class="question">
+    <h1>Question 6</h1>
+    <p>At which of the following decibel (dB) levels does the risk of hearing damage and potentially developing tinnitus increase, even after less than 5 minutes of exposure?</p>
+    <input type="radio" name="q6" value="A"> A. 60 dB, equivalent to background music or a conversation at home.<br>
+    <input type="radio" name="q6" value="B"> B. 85 dB, similar to the noise of heavy city traffic.<br>
+    <input type="radio" name="q6" value="C"> C. 105–110 dB, found in loud entertainment venues like concerts and nightclubs.<br>
+    <input type="radio" name="q6" value="D"> D. 120 dB, the intensity of a jet engine at close range.<br>
+  </div>
+  <div id="question7" class="question">
+    <h1>Question 7</h1>
+    <p>John, a 35-year-old who recently started experiencing tinnitus, reports to his healthcare provider that he is having trouble concentrating at work and is feeling increasingly isolated from his friends and family. These symptoms indicate that John may be experiencing which of the following common emotional and psychological effects associated with tinnitus?</p>
+    <input type="radio" name="q7" value="A"> A. Increased physical endurance and energy levels.<br>
+    <input type="radio" name="q7" value="B"> B. Improved sleep patterns and relaxation.<br>
+    <input type="radio" name="q7" value="C"> C. Anxiety and depression.<br>
+    <input type="radio" name="q7" value="D"> D. Enhanced hearing abilities in noisy environments.<br>
+  </div>
+
+  <button class="submit-button" onclick="submitQuiz()">Submit Quiz</button>
+</div>
+
+<div id="results-container">
+  <h1>Your Result</h1>
+  <h2 id="result"></h2>
+  <div class="progress-bar">
+    <div class="progress-bar-inner"></div>
+  </div>
+  <div class="progress-label">0%</div>
+  <button class="retake-button" onclick="retakeQuiz()">Retake Quiz</button>
+</div>
+
+<script>
+  function submitQuiz() {
+    var correctAnswers = 0;
+    var totalQuestions = 7;
+
+    // Define the correct answers
+    var correct = {
+      q1: 'B',
+      q2: 'B',
+      q3: 'C',
+      q4: 'B',
+      q5: 'B',
+      q6: 'C',
+      q7: 'C'
+    };
+
+    // Iterate through each question
+    for (var i = 1; i <= totalQuestions; i++) {
+      var questionId = 'q' + i;
+      var selectedAnswer = document.querySelector('input[name="' + questionId + '"]:checked');
+      if (selectedAnswer && selectedAnswer.value === correct[questionId]) {
+        correctAnswers++;
+      }
+    }
+
+    var percentage = (correctAnswers / totalQuestions) * 100;
+    var resultDisplay = document.getElementById('result');
+    resultDisplay.textContent = "You got a " + percentage.toFixed(2) + "%!";
+
+    if (percentage >= 80) {
+      resultDisplay.classList.add('green');
+      document.querySelector('.progress-bar-inner').style.width = percentage + "%";
+    } else {
+      resultDisplay.classList.add('red');
+      document.querySelector('.progress-bar-inner').style.width = percentage + "%";
+    }
+
+    // Hide questions
+    var questions = document.querySelectorAll('.question');
+    for (var j = 0; j < questions.length; j++) {
+      questions[j].style.display = 'none';
+    }
+
+    // Show results
+    var resultsContainer = document.getElementById('results-container');
+    resultsContainer.style.display = 'block';
+
+    // Hide submit button
+    var submitButton = document.querySelector('.submit-button');
+    submitButton.style.display = 'none';
+
+    // Update progress label
+    document.querySelector('.progress-label').textContent = percentage.toFixed(0) + "%";
+  }
+
+  function retakeQuiz() {
+    // Reset quiz
+    var questions = document.querySelectorAll('.question');
+    for (var i = 0; i < questions.length; i++) {
+      questions[i].style.display = 'block';
+      var options = questions[i].querySelectorAll('input[type="radio"]');
+      for (var j = 0; j < options.length; j++) {
+        options[j].checked = false;
+      }
+    }
+
+    // Reset result
+    var resultDisplay = document.getElementById('result');
+    resultDisplay.textContent = "";
+    resultDisplay.classList.remove('green', 'red');
+
+    // Hide results container
+    var resultsContainer = document.getElementById('results-container');
+    resultsContainer.style.display = 'none';
+
+    // Show submit button
+    var submitButton = document.querySelector('.submit-button');
+    submitButton.style.display = 'block';
+
+    // Reset progress bar
+    document.querySelector('.progress-bar-inner').style.width = "0%";
+    // Reset progress label
+    document.querySelector('.progress-label').textContent = "0%";
+  }
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
