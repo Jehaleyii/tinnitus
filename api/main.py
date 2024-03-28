@@ -29,6 +29,10 @@ def quiz():
 def references():
     return render_template('references.html')
 
+@app.route("/qr")
+def qr():
+    return render_template('qr.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
